@@ -1,5 +1,5 @@
-import { NpsAdapter } from "../adapters/NpsAdapter";
-import { Rank } from "../types";
+import { NpsAdapter } from '../adapters/NpsAdapter'
+import { Rank } from '../types'
 
 const newDistribution = () =>
   new Map<Rank, number>([
@@ -13,29 +13,29 @@ const newDistribution = () =>
     [7, 0],
     [8, 0],
     [9, 0],
-    [10, 0]
-  ]);
+    [10, 0],
+  ])
 
 export class NpsRepository {
   constructor(private readonly adapter: NpsAdapter) {}
 
-  listDistribution({
+  public listDistribution({
     surveyId,
     startDate,
-    endDate
+    endDate,
   }: {
-    surveyId: string;
-    startDate: number;
-    endDate: number;
+    surveyId: string
+    startDate: number
+    endDate: number
   }) {
     const responses = this.adapter.listSurveyResponses({
       surveyId,
       startDate,
-      endDate
-    });
+      endDate,
+    })
     return responses.reduce((dist, response) => {
-      dist.set(response.rank, (dist.get(response.rank) ?? 0) + 1);
-      return dist;
-    }, newDistribution());
+      dist.set(response.rank, (dist.get(response.rank) ?? 0) + 1)
+      return dist
+    }, newDistribution())
   }
 }

@@ -1,13 +1,13 @@
-import { SurveyResponse } from "../types";
+import { SurveyResponse } from '../types'
 
 export interface NpsAdapter {
-  listSurveyResponses({
+  listSurveyResponses: ({
     surveyId,
     startDate,
-    endDate
+    endDate,
   }: {
-    surveyId: string;
-    startDate: number;
-    endDate: number;
-  }): SurveyResponse[];
+    surveyId: string
+    startDate: number
+    endDate: number
+  }) => SurveyResponse[]
 }

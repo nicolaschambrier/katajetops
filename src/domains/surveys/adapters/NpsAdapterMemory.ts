@@ -1,31 +1,34 @@
-import { SurveyResponse } from "../types";
-import { NpsAdapter } from "./NpsAdapter";
-import { randomData } from "./random-data";
+import { SurveyResponse } from '../types'
 
-const isSurvey = (surveyId: string) => (response: SurveyResponse): boolean => {
-  return response.surveyId === surveyId;
-};
+import { NpsAdapter } from './NpsAdapter'
+import { randomData } from './random-data'
 
-const isPeriod = (startDate: number, endDate: number) => (
-  response: SurveyResponse
-): boolean => {
-  return response.date >= startDate && response.date <= endDate;
-};
+const isSurvey =
+  (surveyId: string) =>
+  (response: SurveyResponse): boolean => {
+    return response.surveyId === surveyId
+  }
+
+const isPeriod =
+  (startDate: number, endDate: number) =>
+  (response: SurveyResponse): boolean => {
+    return response.date >= startDate && response.date <= endDate
+  }
 
 export class NpsAdapterMemory implements NpsAdapter {
   constructor(private data: SurveyResponse[] = randomData) {}
 
-  listSurveyResponses({
+  public listSurveyResponses({
     surveyId,
     startDate,
-    endDate
+    endDate,
   }: {
-    surveyId: string;
-    startDate: number;
-    endDate: number;
+    surveyId: string
+    startDate: number
+    endDate: number
   }) {
     return this.data
       .filter(isSurvey(surveyId))
-      .filter(isPeriod(startDate, endDate));
+      .filter(isPeriod(startDate, endDate))
   }
 }

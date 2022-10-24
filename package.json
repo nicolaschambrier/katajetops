@@ -1,5 +1,6 @@
 {
   "name": "vanilla-typescript",
+  "license": "WTFPL",
   "version": "1.0.0",
   "description": "JavaScript and TypeScript example starter project",
   "main": "src/index.ts",

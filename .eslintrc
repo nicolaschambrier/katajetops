@@ -1,0 +1,11 @@
+{
+  "extends": ["@payfit/eslint-config/node", "prettier"],
+  "plugins": ["prettier"],
+  "ignorePatterns": ["src/**/*.test.ts"],
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}

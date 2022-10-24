@@ -4,15 +4,29 @@
   "description": "JavaScript and TypeScript example starter project",
   "main": "src/index.ts",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "build": "tsc",
+    "prestart": "yarn build",
+    "start": "node dist/"
   },
-  "dependencies": { "parcel-bundler": "^1.6.1" },
   "devDependencies": {
+    "@payfit/eslint-config": "^0.16.0",
+    "@payfit/tsconfig": "^0.5.0",
+    "@types/jest": "^29.2.0",
+    "eslint": "^8.26.0",
+    "jest": "^29.2.1",
+    "ts-jest": "^29.0.3",
     "typescript": "4.4.4"
   },
   "resolutions": {
     "@babel/preset-env": "7.13.8"
   },
-  "keywords": ["typescript", "javascript"]
+  "keywords": [
+    "typescript",
+    "javascript"
+  ],
+  "dependencies": {
+    "prettier": "^2.7.1"
+  }
 }

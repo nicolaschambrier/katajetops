@@ -1,16 +1,9 @@
 {
+  "extends": "@payfit/tsconfig/tsconfig.node.json",
   "compilerOptions": {
-    "strict": true,
-    "module": "commonjs",
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "allowJs": true,
-    "lib": [
-      "es6",
-      "dom"
-    ],
+    "module": "CommonJS",
     "rootDir": "src",
-    "moduleResolution": "node"
-  }
+    "outDir": "dist"
+  },
+  "exclude": ["node_modules", "**/*.test.ts", "dist"]
 }
